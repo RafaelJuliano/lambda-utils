@@ -1,6 +1,9 @@
 import type { Config } from 'jest'
 
 const config: Config = {
+  preset: 'ts-jest',
+  testEnvironment: 'node',
+  testPathIgnorePatterns: ['/node_modules/', '/dist/'],
   clearMocks: true,
   collectCoverage: true,
   coverageDirectory: 'coverage',
@@ -12,7 +15,6 @@ const config: Config = {
     '/exceptions/',
     '/domain/',
   ],
-  coverageProvider: 'babel',
   moduleDirectories: ['node_modules'],
   testMatch: ['**/__tests__/**/*.test.[jt]s?(x)'],
 }

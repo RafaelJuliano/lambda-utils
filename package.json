@@ -1,14 +1,18 @@
 {
-  "name": "@rafaeljuliano/lambda-utils",
-  "version": "1.0.0",
+  "name": "@jftecnologia/lambda-utils",
+  "version": "1.0.1",
   "description": "Streamline your AWS Lambda workflows with our collection of efficient utilities.",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "cross-env NODE_ENV=test jest --detectOpenHandles --forceExit",
     "test:coverage": "cross-env NODE_ENV=test jest --detectOpenHandles --forceExit --coverage",
     "lint": "eslint ./ --ext .ts --ext .js",
     "lint:fix": "eslint ./ --ext .ts --ext .js --fix",
-    "build": "tsc src/index.ts"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
@@ -25,9 +29,6 @@
   },
   "homepage": "https://github.com/RafaelJuliano/lambda-utils#readme",
   "devDependencies": {
-    "@babel/core": "7.22.9",
-    "@babel/preset-env": "7.22.9",
-    "@babel/preset-typescript": "7.22.5",
     "@types/aws-lambda": "^8.10.119",
     "@types/date-fns": "^2.6.0",
     "@types/jest": "29.5.3",
@@ -36,7 +37,6 @@
     "@types/yup": "^0.32.0",
     "@typescript-eslint/eslint-plugin": "6.2.1",
     "@typescript-eslint/parser": "6.2.1",
-    "babel-jest": "29.6.2",
     "esbuild": "0.17.0",
     "eslint": "8.46.0",
     "eslint-config": "^0.3.0",
@@ -58,6 +58,7 @@
     "@middy/core": "4.5.5",
     "@middy/http-cors": "4.5.5",
     "@middy/http-json-body-parser": "4.5.5",
+    "cross-env": "^7.0.3",
     "date-fns": "^3.3.1",
     "uuid": "^9.0.0",
     "yup": "1.2.0"

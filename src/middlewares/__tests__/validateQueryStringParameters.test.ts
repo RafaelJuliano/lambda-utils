@@ -22,7 +22,7 @@ describe('middlewares - validateQueryStringParameters', () => {
     try {
       await main(event, context)
       return true
-    } catch (error) {
+    } catch (error: any) {
       expect(error).toBeInstanceOf(BadRequestException)
       expect(error.statusCode).toBe(400)
       expect(error.body).toStrictEqual({
@@ -45,6 +45,7 @@ describe('middlewares - validateQueryStringParameters', () => {
     const request = createRequest({
       queryStringParameters: {},
     })
+    //@ts-ignore
     delete request.headers
     await validate(request, ['key is a required field'])
   })

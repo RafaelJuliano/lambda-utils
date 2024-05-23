@@ -24,7 +24,7 @@ describe('middlewares - validateEvent', () => {
     try {
       await main(event, context)
       return true
-    } catch (error) {
+    } catch (error: any) {
       expect(error).toBeInstanceOf(BadRequestException)
       expect(error.statusCode).toBe(400)
       expect(error.body).toStrictEqual({
@@ -46,6 +46,7 @@ describe('middlewares - validateEvent', () => {
 
   it('should validate an invalid event', async () => {
     const request = createRequest()
+    //@ts-ignore
     delete request.headers
     await validate(request, [
       'body is a required field',

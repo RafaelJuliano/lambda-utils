@@ -10,7 +10,7 @@ export const yupValidate = (schema: Yup.Schema, object: unknown) => {
   })
 }
 
-export const handleYupValidationError = (error: Error) => {
+export const handleYupValidationError = (error: unknown) => {
   if (error instanceof Yup.ValidationError) {
     const { errors } = error
     throw new BadRequestException({ errors })
