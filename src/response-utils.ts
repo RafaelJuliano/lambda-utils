@@ -14,6 +14,16 @@ const success = (body: object, contentType?: string) => {
   }
 }
 
+const created = (body: object, contentType?: string) => {
+  return {
+    statusCode: 201,
+    body: JSON.stringify(body),
+    headers: {
+      'content-type': contentType || 'application/json',
+    },
+  }
+}
+
 const noContent = () => {
   return {
     statusCode: 204,
@@ -22,6 +32,7 @@ const noContent = () => {
 
 export const Response = {
   ok,
+  created,
   success,
   noContent,
 }

@@ -17,3 +17,7 @@ export const httpMidiffy = (
     .use(httpJsonBodyParser())
     .use(handleUnknowErrors())
 }
+
+export const simpleMidiffy = (handler: (event: unknown) => Promise<unknown>) => {
+  return middy().handler(handler)
+}
