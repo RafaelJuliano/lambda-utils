@@ -10,7 +10,7 @@ export const handleUnknowErrors = (): Middleware => {
           statusCode: error.statusCode,
           body: JSON.stringify({
             message: error.message,
-            ...(typeof error.body === 'object' && error.body),
+            ...error.body,
           }),
           headers: {
             'Content-Type': 'application/json',

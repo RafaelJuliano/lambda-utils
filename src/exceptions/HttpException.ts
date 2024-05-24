@@ -1,17 +1,14 @@
 export class HttpException extends Error {
   readonly statusCode: number
 
-  readonly body: object | string | number
+  readonly body: object
 
-  constructor(message: string, statusCode: number, body: object | string | number = {}) {
+  constructor(message: string, statusCode: number, body = {}) {
     super(message)
     this.statusCode = statusCode
-    this.body =
-      typeof body === 'object' && body !== null
-        ? {
-            message,
-            ...body,
-          }
-        : body
+    this.body = {
+      message,
+      ...body,
+    }
   }
 }
